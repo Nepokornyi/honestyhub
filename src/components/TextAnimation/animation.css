@@ -1,0 +1,29 @@
+.clip-blob {
+    clip-path: ellipse(50% 50% at center);
+}
+
+.animate-square-blob {
+    animation: square-blob 6s linear infinite;
+}
+
+.animate-square-blob-alternative {
+    animation: square-blob-alternative 10s linear infinite;
+}
+
+@keyframes square-blob {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes square-blob-alternative {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
