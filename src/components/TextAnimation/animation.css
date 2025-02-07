@@ -1,5 +1,14 @@
 .clip-blob {
-    clip-path: ellipse(50% 50% at center);
+    -webkit-mask-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 1) 45%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    mask-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 1) 25%,
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 .animate-square-blob {

@@ -11,7 +11,7 @@ import './animation.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const LINE_LENGTH = 6
+const LINE_LENGTH = 3
 
 export const TextAnimation = () => {
     const [isScrollingDown, setIsScrollingDown] = useState(true)
@@ -23,8 +23,6 @@ export const TextAnimation = () => {
         const marquee = document.querySelector('.marquee_inner')
 
         if (!marquee) return
-
-        gsap.set(marquee, { xPercent: -50 })
 
         tweenRef.current = gsap.to('.marquee_part', {
             xPercent: -100,
@@ -63,10 +61,7 @@ export const TextAnimation = () => {
 
     const renderLines = () => {
         return Array.from({ length: LINE_LENGTH + 1 }).map((_, i) => (
-            <div
-                className="marquee_part flex items-center px-1 flex-shrink-0"
-                key={i}
-            >
+            <div className="marquee_part flex items-center px-1" key={i}>
                 <span>#HonestyHub</span>
                 <div className="arrow w-12 mx-4 flex items-center">
                     <Image
@@ -85,11 +80,9 @@ export const TextAnimation = () => {
 
     return (
         <>
-            <section className="marquee h-[100vh] relative bg-[#0f0f0f] flex items-center py-8 text-4xl uppercase overflow-hidden">
+            <section className="marquee h-screen relative flex items-center py-8 text-4xl uppercase">
                 <BlobBackground>
-                    {/* mix-blend-color */}
-                    <div className="marquee_inner border border-white z-10 flex flex-auto flex-row w-fit  text-white pointer-events-none translate-x-1/2">
-                        {renderLines()}
+                    <div className="marquee_inner z-10 flex flex-row pointer-events-none w-[395px] overflow-hidden">
                         {renderLines()}
                     </div>
                 </BlobBackground>

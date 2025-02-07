@@ -3,7 +3,7 @@ import { TextAnimation } from '@/components/TextAnimation/TextAnimation'
 
 export default function Home() {
     return (
-        <div className="relative flex flex-col justify-center min-h-screen w-full">
+        <div className="relative flex flex-col justify-center w-full">
             <header>Header</header>
             <TextAnimation />
             <Portfolio />
