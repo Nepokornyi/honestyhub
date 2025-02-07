@@ -11,7 +11,7 @@ export const BlobBackground = ({ children }: BlobBackgroundProps) => {
             {children}
 
             <div className="absolute group w-[400px] h-[400px]">
-                <span className="absolute border-2 border-white w-[400px] h-[400px] top-0 left-0 rounded-[32%_58%_69%_43%/_48%_32%_59%_55%] group-hover:border-none group-hover:bg-blue-300" />
+                <span className="absolute border-2 border-white w-[400px] h-[400px] top-0 left-0 transition-all duration-500 rounded-[32%_58%_69%_43%/_48%_32%_59%_55%] group-hover:border-none group-hover:bg-blue-300" />
 
                 <span className="absolute border-2 border-white w-[400px] h-[400px] top-0 left-0 transition-all duration-500 animate-square-blob rounded-[38%_62%_63%_37%/_41%_44%_56%_59%] group-hover:border-none group-hover:bg-blue-300" />
 
