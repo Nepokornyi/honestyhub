@@ -41,7 +41,7 @@ export const Portfolio = () => {
     }, [])
 
     return (
-        <main className="main">
+        <main id="About" className="main">
             <div className="gallery h-[150vh] w-full flex flex-row gap- md:gap-6 border-box overflow-hidden">
                 <Column images={[Images[0], Images[1], Images[2]]} y={y} />
                 <Column images={[Images[3], Images[4], Images[5]]} y={y2} />
