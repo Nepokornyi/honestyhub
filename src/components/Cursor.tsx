@@ -6,10 +6,9 @@ import { gsap } from 'gsap'
 export const Cursor = () => {
     useEffect(() => {
         const cursor = document.getElementById('custom-cursor')
-        const links = document.querySelectorAll('a')
-        const cursorText = document.querySelector('.cursor-text') as HTMLElement
-
-        if (!cursor || !cursorText) return
+        const spans = cursor?.querySelectorAll('span') || []
+        const links = document.querySelectorAll('.item')
+        if (!cursor) return
 
         const onMouseMove = (e: MouseEvent) => {
             gsap.to(cursor, {
@@ -19,19 +18,24 @@ export const Cursor = () => {
             })
         }
 
-        const onMouseEnterLink = (event: MouseEvent) => {
-            const link = event.target as HTMLAnchorElement
-            if (link.classList.contains('view')) {
-                gsap.to(cursor, { scale: 3 })
-                cursorText.style.display = 'block'
-            } else {
-                gsap.to(cursor, { scale: 1 })
-            }
+        const onMouseEnterLink = () => {
+            gsap.to(cursor, {
+                scale: 3,
+                duration: 0.3,
+                ease: 'power2.out',
+            })
+
+            spans.forEach((span) => {
+                span.classList.add('bg-white')
+            })
         }
 
         const onMouseLeaveLink = () => {
-            gsap.to(cursor, { scale: 1 })
-            cursorText.style.display = 'none'
+            gsap.to(cursor, { scale: 1, duration: 0.3, ease: 'power2.out' })
+
+            spans.forEach((span) => {
+                span.classList.remove('bg-white')
+            })
         }
 
         document.addEventListener('mousemove', onMouseMove)
@@ -52,11 +56,14 @@ export const Cursor = () => {
     return (
         <div
             id="custom-cursor"
-            className="fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-50 p-3 flex justify-center items-center bg-white"
+            className="fixed -top-2 -left-2 w-5 h-5 pointer-events-none z-50 p-3 flex justify-center items-center mix-blend-difference"
         >
-            <span className="cursor-text text-black text-xs uppercase hidden">
-                View
-            </span>
+            <span className="absolute border border-white w-5 h-5 top-0 left-0 transition-all duration-500 animate-square-blob rounded-[32%_58%_69%_43%/_48%_32%_59%_55%]" />
+
+            <span className="absolute border border-white w-5 h-5 top-0 left-0 transition-all duration-500 animate-square-blob rounded-[38%_62%_63%_37%/_41%_44%_56%_59%]" />
+
+            <span className="absolute border border-white w-5 h-5 top-0 left-0 transition-all duration-500 animate-square-blob-alternative rounded-[31%_45%_74%_35%/_38%_56%_51%_87%]" />
+            {/* <span className="cursor-text text-black text-xs uppercase hidden" /> */}
         </div>
     )
 }
