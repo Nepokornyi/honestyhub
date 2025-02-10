@@ -4,7 +4,7 @@ import { TextAnimation } from '../TextAnimation/TextAnimation'
 export const Footer = () => {
     return (
         <>
-            <div className="marquee relative flex mx-6 lg:mx-12 py-8 text-4xl uppercase overflow-hidden">
+            <div className="marquee relative flex mx-6 lg:mx-12 py-8 text-2xl md:text-4xl uppercase overflow-hidden">
                 <TextAnimation lineLength={5} renderArrow={false} />
             </div>
 

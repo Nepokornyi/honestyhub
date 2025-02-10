@@ -40,7 +40,7 @@ const projectsList = [
         client: 'Scooty',
         location: 'Prague',
         service: 'Development',
-        year: '2023',
+        year: '2024',
         link: 'https://scooty.cz/',
         styles: 'item',
     },
@@ -49,7 +49,7 @@ const projectsList = [
         client: 'Tale',
         location: 'New York',
         service: 'Development',
-        year: '2024',
+        year: '2023',
         link: 'https://dungeon-parallax.vercel.app/',
         styles: 'item',
     },
@@ -141,7 +141,7 @@ export const Portfolio = () => {
     }, [])
 
     return (
-        <div ref={containerRef} className="relative">
+        <div ref={containerRef} id="About" className="relative">
             <div
                 ref={previewRef}
                 className="portfolio-preview item absolute w-[250px] h-[250px] overflow-hidden pointer-events-none origin-center z-10"
