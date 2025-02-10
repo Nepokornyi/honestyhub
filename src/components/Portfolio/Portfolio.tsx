@@ -141,7 +141,7 @@ export const Portfolio = () => {
     }, [])
 
     return (
-        <div ref={containerRef} className="relative h-screen">
+        <div ref={containerRef} className="relative">
             <div
                 ref={previewRef}
                 className="portfolio-preview item absolute w-[250px] h-[250px] overflow-hidden pointer-events-none origin-center z-10"

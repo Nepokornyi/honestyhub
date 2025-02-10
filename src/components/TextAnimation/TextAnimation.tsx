@@ -5,15 +5,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import gsap from 'gsap'
 import arrow from '@/assets/arrow-left.svg'
-import { BlobBackground } from './BlobBackground'
 
 import './animation.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const LINE_LENGTH = 3
+type TextAnimationProps = {
+    lineLength?: number
+    text?: string
+    renderArrow?: boolean
+}
 
-export const TextAnimation = () => {
+export const TextAnimation = ({
+    lineLength = 3,
+    text = '#HonestyHub',
+    renderArrow = true,
+}: TextAnimationProps) => {
     const [isScrollingDown, setIsScrollingDown] = useState(true)
     const scrollPos = useRef(0)
     const velocityRef = useRef(0)
@@ -59,11 +66,11 @@ export const TextAnimation = () => {
         }
     }, [])
 
-    const renderLines = () => {
-        return Array.from({ length: LINE_LENGTH + 1 }).map((_, i) => (
-            <div className="marquee_part flex items-center px-1" key={i}>
-                <span>#HonestyHub</span>
-                <div className="arrow w-12 mx-4 flex items-center">
+    return Array.from({ length: lineLength + 1 }).map((_, i) => (
+        <div className="marquee_part flex items-center px-1" key={i}>
+            <span>{text}</span>
+            <div className="arrow w-12 mx-4 flex items-center">
+                {renderArrow && (
                     <Image
                         src={arrow}
                         alt="arrow"
@@ -73,20 +80,8 @@ export const TextAnimation = () => {
                             isScrollingDown ? 'rotate-0' : 'rotate-180'
                         }`}
                     />
-                </div>
+                )}
             </div>
-        ))
-    }
-
-    return (
-        <>
-            <section className="marquee h-screen relative flex items-center py-8 text-4xl uppercase">
-                <BlobBackground>
-                    <div className="marquee_inner z-10 flex flex-row pointer-events-none w-[395px] overflow-hidden">
-                        {renderLines()}
-                    </div>
-                </BlobBackground>
-            </section>
-        </>
-    )
+        </div>
+    ))
 }
